@@ -9,7 +9,7 @@ const router = createRouter({
   //vite中的环境变量import.meta.env.BASE_URL 就是vite.config.js中的base配置项
   //createRouter封装了new VueRouter()
   //import.meta.env.BASE_URL默认是/
-  hash: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/login', component: () => import('@/views/login/LoginPage.vue') },
     {
