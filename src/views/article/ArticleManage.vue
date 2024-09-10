@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { Delete, Edit } from '@element-plus/icons-vue'
 import ChannelSelect from './components/ChannelSelect.vue'
-import { artGetListService } from '@/api/article'
+import { artGetListService,artDelService } from '@/api/article'
 import { formatTime } from '@/utils/format.js'
 import ArticleEdit from './components/ArticleEdit.vue'
 
@@ -74,8 +74,15 @@ const onAddArticle = () => {
 }
 
 //删除逻辑
-const onDeleteArticle = (row) => {
-  console.log(row)
+const onDeleteArticle = async (row) => {
+  await ElMessageBox.confirm('你确定要删除该项吗', '温馨提示', {
+    type: 'warning',
+    confirmButtonText: '确认',
+    cancelButtonText: '取消'
+  })
+  await artDelService(row.id)
+  ElMessage.success('删除成功')
+  getArticleList()
 }
 
 //添加或编辑成功的回调
