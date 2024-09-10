@@ -13,7 +13,7 @@ const loading = ref(false) //loading状态
 //定义请求参数对象
 const params = ref({
   pagenum: 1, //当前页
-  pagesize: 2, //当前生效的每页条数
+  pagesize: 5, //当前生效的每页条数
   cate_id: '',
   state: ''
 })
